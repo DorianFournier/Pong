@@ -1,12 +1,8 @@
 
 /*
-
-										PROJET PONG 
-
-									    6 May 2020
-						 Modified by Thomas BRUNET / Dorian FOURNIER  							
-						  B1 -  Aéronautique et systèmes embarqués 
-
+PONG PROJECT
+6 May 2020
+Modified by Dorian FOURNIER
 */
  
 
@@ -18,12 +14,12 @@
 
 #define Applause 0									//definition de symbole pour l'applause 
 #define Boo    1									//definition de symbole pour le boooo
-#define musique_de_fond 2							//definition de symbole pour la musiquede fond
+#define musique_de_fond 2							//definition de symbole pour la musique de fond
 
-#define Attente 5000								//definition de 5000 à attente
+#define Attente 5000
 
 void fctmusic(unsigned char choix_musique);        
-void fctsong(unsigned char choix_musique);			//prototype de nos 3 fonctions musique / son
+void fctsong(unsigned char choix_musique);			//prototype des 3 fonctions musique / son
 void fctsong2(unsigned char choix_musique);
 
 int init(int w, int h, int argc, char* args[]); 
@@ -56,7 +52,7 @@ void fctmusic(unsigned char choix_musique) {
 		printf("%s", Mix_GetError());
 	}
 
-	Mix_VolumeMusic(MIX_MAX_VOLUME / 2);	 //Mettre le volume à la moitié
+	Mix_VolumeMusic(MIX_MAX_VOLUME / 2);	 //Mettre le volume a la moitie
 	Mix_Music* musique;						 //Création d'un pointeur de type Mix_Music
 	musique = Mix_LoadMUS("Ehr.wav");		 //Chargement de la musique
 	Mix_PlayMusic(musique, -1);				 //Jouer infiniment la musique
@@ -70,7 +66,7 @@ void fctsong(unsigned char choix_musique) {
 		printf("%s", Mix_GetError());
 	}
 
-	Mix_VolumeMusic(MIX_MAX_VOLUME / 2);	//Mettre le volume à la moitié
+	Mix_VolumeMusic(MIX_MAX_VOLUME / 2);	//Mettre le volume a la moitie
 	Mix_Music* musique2;					//Création d'un pointeur de type Mix_Music
 	musique2 = Mix_LoadMUS("App.wav");		//Chargement de la musique
 	Mix_PlayMusic(musique2, -1);			//Jouer infiniment la musique
@@ -86,7 +82,7 @@ void fctsong2(unsigned char choix_musique) {
 		printf("%s", Mix_GetError());
 	}
 
-	Mix_VolumeMusic(MIX_MAX_VOLUME / 2);	//Mettre le volume à la moitié
+	Mix_VolumeMusic(MIX_MAX_VOLUME / 2);	//Mettre le volume a la moitie
 	Mix_Music* musique3;					//Création d'un pointeur de type Mix_Music
 	musique3 = Mix_LoadMUS("Boo.wav");		//Chargement de la musique
 	Mix_PlayMusic(musique3, -1);		    //Jouer infiniment la musique
@@ -158,7 +154,7 @@ int check_score() {
 	for (i = 0; i <= 1; i++) 
 	{
 									
-		if (score[i] == 3)			//regarder si le score max a eté atteint par un joueur 
+		if (score[i] == 3)			//regarder si le score max est atteint par un joueur
 		{							//score max = 3
 
 			if (reinitialisation == 10) 
@@ -727,24 +723,24 @@ int main(int argc, char* args[]) {
 
 		if (serialPortReadDataLength > 0)
 		{
-			if (serialPortBuffer[0] > 102)					//si la valeur reçu de STM8 est superieur a 100 
+			if (serialPortBuffer[0] > 102)					//si la valeur recu de STM8 est superieur a 100
 			{
 				switch (serialPortBuffer[0])
 				{
 
-				case 104:									//'104' reçu donc state = 0 
+				case 104:									//'104' recu donc state = 0
 					state = 0;
 					break;
 
 				case 105 : 
-					state = 1;								//'105' reçu donc c'est que la barr espace à été appuyé côté STM8 donc pongon lance la partie car state = 1
+					state = 1;								//'105' recu donc c'est que la barr espace à ete appuyee cote STM8 donc pongon lance la partie car state = 1
 					break;
 
 				case 106 :
-					fctmusic(musique_de_fond);				//'106' reçu donc c'est que le bouton musique à été appuyé côté STM8 donc pong lance la musique 
+					fctmusic(musique_de_fond);				//'106' recu donc c'est que le bouton musique à ete appuyee cote STM8 donc pong lance la musique
 					break;
 
-				case 107 :									//'107' reçu donc c'est que le bouton musique à été une nouvelle fois appuyé côté STM8 donc pong éteint la musique 
+				case 107 :									//'107' recu donc c'est que le bouton musique à ete une nouvelle fois appuyee cote STM8 donc pong eteint la musique
 					Mix_HaltMusic();
 					break;
 
@@ -754,7 +750,7 @@ int main(int argc, char* args[]) {
 			}
 			else
 			{
-				place_paddle(serialPortBuffer[0]);			//les autres valeurs sont pour le déplacement du paddle  
+				place_paddle(serialPortBuffer[0]);			//les autres valeurs sont pour le deplacement du paddle
 			}
 		}
 		//FIN AJOUT NNC ET DFR

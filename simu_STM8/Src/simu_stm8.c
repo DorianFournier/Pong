@@ -1,12 +1,7 @@
-
 /*
-
-										PROJET PONG
-
-										6 May 2020
-						 Modified by Thomas BRUNET / Dorian FOURNIER
-						  B1 -  Aéronautique et systèmes embarqués
-
+PONG PROJECT
+6 May 2020
+Modified by Dorian FOURNIER
 */
 
 //BEGIN HEAD
@@ -251,21 +246,21 @@ int main(int argc, char* argv[])
 	while (running) 
 	{
 
-		STM8_read(&player_goal, sizeof(SERIAL_PORT_BUFFER_LENGTH));			//lecture de la variable 'player_goal' reçu de pong
+		STM8_read(&player_goal, sizeof(SERIAL_PORT_BUFFER_LENGTH));			// read "player_goal" var
 
-		etatLED();															//appel de la fonction etatLED 
+		etatLED();															// call function "etatLED()"
 
 		if (player_goal == 0 || player_goal == 't' || player_goal == 's')	
 		{
 				
-			if (keystate[SDL_SCANCODE_SPACE])										//si la barre espace est appuyée 
+			if (keystate[SDL_SCANCODE_SPACE])										// if the space bar is pressed
 			{
 
 				etatbarre = 105;	
 
-				STM8_write(&etatbarre, 1);											//envoi de la variable etatbarre au pong
+				STM8_write(&etatbarre, 1);											// sent var "etatbarre"
 
-				temp_surface = IMG_Load("./assets/gfx/RGB_blanc.png");				// reinitialisation des LEDs et du 7 segments en début de partie
+				temp_surface = IMG_Load("./assets/gfx/RGB_blanc.png");
 				RGB_blanc = SDL_CreateTextureFromSurface(Renderer, temp_surface);
 
 				temp_surface = IMG_Load("./assets/gfx/SGB_A.png");
@@ -306,7 +301,7 @@ int main(int argc, char* argv[])
 				SGB_G2 = SDL_CreateTextureFromSurface(Renderer, temp_surface);
 
 				etatmusic = 107;													
-				STM8_write(&etatmusic, 1);												//envoi de la variable 'etatmusic' à pong
+				STM8_write(&etatmusic, 1);												// sent var 'etatmusic'
 
 				temp_surface = IMG_Load("./assets/gfx/btn_Play.png");
 				btn_play = SDL_CreateTextureFromSurface(Renderer, temp_surface);
@@ -350,21 +345,21 @@ int main(int argc, char* argv[])
 						mouse_offset.y = mouse.y - button_dst.y;
 						mouse_follow = SDL_TRUE;
 					}
-					if (event.button.button == SDL_BUTTON_LEFT && SDL_PointInRect(&mouse, &btn_play_dst))		//si il y a eu un clic gauche souris sur le bouton
+					if (event.button.button == SDL_BUTTON_LEFT && SDL_PointInRect(&mouse, &btn_play_dst))		// if there is a left mouse click
 					{
 						if (etatmusic == 107)		
 						{
-							temp_surface = IMG_Load("./assets/gfx/btn_Pause.png");								//chargement du bouton pause
-							btn_play = SDL_CreateTextureFromSurface(Renderer, temp_surface);					//le bouton pause se met aux même coordonnées que le bouton play
-							etatmusic = 106;																	//on passe 'etatmusic'à 106 et on l'envoie au pong
+							temp_surface = IMG_Load("./assets/gfx/btn_Pause.png");								// load pause button
+							btn_play = SDL_CreateTextureFromSurface(Renderer, temp_surface);					// overlay the two buttons
+							etatmusic = 106;
 							STM8_write(&etatmusic, 1);															
 						}
 
-						else if (etatmusic == 106)																//si 'etatmusic == 106'
+						else if (etatmusic == 106)																// if 'etatmusic == 106'
 						{
-						    temp_surface = IMG_Load("./assets/gfx/btn_Play.png");								//chargement du bouton play
-							btn_play = SDL_CreateTextureFromSurface(Renderer, temp_surface);					//le bouton play se met aux même coordonnées que le bouton pause
-							etatmusic = 107;																	//on passe 'etatmusic'à 107 et on l'envoie au pong
+						    temp_surface = IMG_Load("./assets/gfx/btn_Play.png");								// load play button
+							btn_play = SDL_CreateTextureFromSurface(Renderer, temp_surface);					// overlay the two buttons
+							etatmusic = 107;
 							STM8_write(&etatmusic, 1);															
 						}
 						
@@ -381,7 +376,7 @@ int main(int argc, char* argv[])
 			if (event.type == SDL_KEYDOWN)
 			{
 				switch (event.key.keysym.sym) {
-				case SDLK_ESCAPE:						//si apppui echap alors on quite le simu  
+				case SDLK_ESCAPE:						// if escape key are pressed, quit the program
 					running = 0;
 					break;
 
@@ -679,19 +674,19 @@ void assets_in(void)
 }
 
 
-void etatLED(void)					//fonction etatLED qui va gerer les LEDs en fonction de la valeur 'player_goal' recu par pong
+void etatLED(void)
 {
 
-	if (player_goal == 'u')														//si la valeur reçu par pong est le caractere 'u' alors 
+	if (player_goal == 'u')
 	{
 
-		temp_surface = IMG_Load("./assets/gfx/rouge.png");						//j'allume la premiere LED
+		temp_surface = IMG_Load("./assets/gfx/rouge.png");
 		blanc = SDL_CreateTextureFromSurface(Renderer, temp_surface);
 
-		temp_surface = IMG_Load("./assets/gfx/RGB_vert.png");					//j'allume la RGB en vert
+		temp_surface = IMG_Load("./assets/gfx/RGB_vert.png");
 		RGB_blanc = SDL_CreateTextureFromSurface(Renderer, temp_surface);
 
-		temp_surface = IMG_Load("./assets/gfx/SGR_B.png");						//j'affiche 1 avec mon 7 segments  
+		temp_surface = IMG_Load("./assets/gfx/SGR_B.png");
 		SGB_B = SDL_CreateTextureFromSurface(Renderer, temp_surface);
 		temp_surface = IMG_Load("./assets/gfx/SGR_C.png");
 		SGB_C = SDL_CreateTextureFromSurface(Renderer, temp_surface);
@@ -751,13 +746,13 @@ void etatLED(void)					//fonction etatLED qui va gerer les LEDs en fonction de l
 	}
 
 
-	if (player_goal == 'q')														//si la valeur reçu par pong est le caractere 'q' alors 
+	if (player_goal == 'q')
 	{
 
-		temp_surface = IMG_Load("./assets/gfx/RGB_rouge.png");					//allumer la RGB en rouge car but IA
+		temp_surface = IMG_Load("./assets/gfx/RGB_rouge.png");
 		RGB_blanc = SDL_CreateTextureFromSurface(Renderer, temp_surface);
 
-		temp_surface = IMG_Load("./assets/gfx/SGR_B2.png");						//afficher 1 sur le 7 segments IA
+		temp_surface = IMG_Load("./assets/gfx/SGR_B2.png");					
 		SGB_B2 = SDL_CreateTextureFromSurface(Renderer, temp_surface);
 		temp_surface = IMG_Load("./assets/gfx/SGR_C2.png");
 		SGB_C2 = SDL_CreateTextureFromSurface(Renderer, temp_surface);

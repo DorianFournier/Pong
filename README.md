@@ -1,8 +1,8 @@
 # Pong
 
 To validate my first year of training in embedded systems, I had to make an improvement of the "PONG" game.<br>
-Due to Covid-19 pandemic, it was impossible to control the game with a STM8 board (it was impossible to have a board at home).<br>
-So we had to improvised a solution with a "STM8 simulation" on our laptop.
+Due to Covid-19 pandemic, it was impossible to control the game with a STM8 board.<br>
+So we had to improvise a solution with a "STM8 simulation" on our laptop.
 
 You can find here a **before** / **after** of the project !
 

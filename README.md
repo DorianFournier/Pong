@@ -2,7 +2,6 @@
 To validate my first year of training in embedded systems, I had to make an improvement of the "PONG" game.
 Due to Covid-19 pandemic, it was impossible to control the game with a STM8 board. We had to improvised a solution with a "STM8 simulation" on our laptop.
 
-
 You can find here a before / after project !
 
 BEFORE : 
@@ -12,4 +11,4 @@ BEFORE :
 
 AFTER : 
 
-<img width="542" alt="Capture d’écran 2021-03-04 à 14 21 40" src="https://user-images.githubusercontent.com/54947603/109970103-f806ed00-7cf4-11eb-808e-6fa648df577e.png">
+<img width="518" alt="Capture d’écran 2021-03-04 à 14 21 40" src="https://user-images.githubusercontent.com/54947603/109970402-4a480e00-7cf5-11eb-98c7-1a124f420d3b.png">

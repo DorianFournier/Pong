@@ -1,5 +1,9 @@
 # Pong
 To validate my first year of training in embedded systems, I had to make an improvement of the "PONG" game.
+Due to Covid-19 pandemic, it was impossible to control the game with a STM8 board. We had to improvised a solution with a "STM8 simulation" on our laptop.
+
+
+You can find here a before / after project !
 
 BEFORE : 
 
@@ -8,4 +12,4 @@ BEFORE :
 
 AFTER : 
 
-<img width="466" alt="Capture d’écran 2021-03-03 à 22 28 48" src="https://user-images.githubusercontent.com/54947603/109879357-be42d180-7c75-11eb-8866-9847d2a835d5.png">
+<img width="542" alt="Capture d’écran 2021-03-04 à 14 21 40" src="https://user-images.githubusercontent.com/54947603/109970103-f806ed00-7cf4-11eb-808e-6fa648df577e.png">

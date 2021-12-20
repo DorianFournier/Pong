@@ -3,7 +3,7 @@
 To validate my first year of training in embedded systems, I had to make an improvement of the "PONG" game.<br>
 "Pong" is a two-dimensional sports game that simulates table tennis. It was created by Allan Alcorn, and released in 1972. <br>
 
-Normally, I should have realized this project with an STM8 board and its shield. This shield contained LEDs, linear potentiometer and button.<br>
+Normally, I should have realized this project with an STM8 board and its shield. This shield contained LEDs, linear potentiometer and some buttons.<br>
 However, due to Covid-19 pandemic, it was impossible to control the game with this board.<br>
 So we had to improvise a solution with a "STM8 simulation" on our laptop.
 
